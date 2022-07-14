@@ -6,9 +6,8 @@
 <meta charset="EUC-KR">
 <title>dispatcher.jsp</title>
 <style>
-table{border-collapse:collapse;width:50%;margin:0 auto}
+table{border-collapse:collapse;width:500px;margin:0 auto}
 tr{height:3em; border-bottom:1px solid black }
-td{width:60%}
 </style>
 </head>
 <body>
@@ -17,8 +16,8 @@ td{width:60%}
 	<table>
 		<tr><th>아이디</th><td><%=request.getAttribute("id") %></td></tr>
 		<tr><th>비밀번호</th><td><%=request.getAttribute("pass") %></td></tr>
-		<tr><th>주민번호</th><td><%=request.getAttribute("jumin1") %>-<%=request.getAttribute("jumin2") %></td></tr>
-		<tr><th>e-mail</th><td><%=request.getAttribute("email") %>@<%=request.getAttribute("domain") %></td></tr>
+		<tr><th>주민번호</th><td><%=request.getAttribute("jumin") %></td></tr>
+		<tr><th>e-mail</th><td><%=request.getAttribute("email") %></td></tr>
 		<tr><th>성별</th><td><%=request.getAttribute("gender") %></td></tr>
 		<tr><th>취미</th><td><%=request.getAttribute("hobby") %></td></tr>
 		<tr><th>우편번호</th><td><%=request.getAttribute("post1") %></td></tr>

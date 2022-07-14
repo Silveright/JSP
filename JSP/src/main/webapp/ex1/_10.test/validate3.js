@@ -1,6 +1,5 @@
- request.setCharacterEncoding("euc-kr");
 	$(document).ready(function(){
-		var is_idcheck_click=false;//id ì¤‘ë³µ ê²€ì‚¬ ì—¬ë¶€
+		var is_idcheck_click=false;//id Áßº¹ °Ë»ç ¿©ºÎ
 		var idcheck_value='';
 		//var clicked=0;
 		//var oldVal='';
@@ -8,7 +7,7 @@
 			
 			var id=$.trim($('#id').val());
 			if(id ==''){
-				alert('IDë¥¼ ì…ë ¥í•˜ì„¸ìš”');
+				alert('ID¸¦ ÀÔ·ÂÇÏ¼¼¿ä');
 				$('#id').focus();
 				return false;
 			}
@@ -17,100 +16,100 @@
 			
 			var pass=$.trim($('#pass').val());
 			if(pass ==''){
-				alert('ë¹„ë°€ë²ˆí˜¸ë¥¼ ì…ë ¥í•˜ì„¸ìš”');
+				alert('ºñ¹Ğ¹øÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä');
 				$('#pass').focus();
 				return false;
 			}
 			
 			var jumin1 =$.trim($('#jumin1').val());
 			if(jumin1 ==''){
-				alert('ì£¼ë¯¼ë²ˆí˜¸ ì•ìë¦¬ë¥¼ ì…ë ¥í•˜ì„¸ìš”');
+				alert('ÁÖ¹Î¹øÈ£ ¾ÕÀÚ¸®¸¦ ÀÔ·ÂÇÏ¼¼¿ä');
 				$('#jumin1').focus();
 				return false;
 			}
 			
 			if($.trim($('#jumin1').val()).length !=6){
-				alert('ì£¼ë¯¼ë²ˆí˜¸ ì•ìë¦¬ 6ìë¦¬ë¥¼ ì…ë ¥í•˜ì„¸ìš”');
+				alert('ÁÖ¹Î¹øÈ£ ¾ÕÀÚ¸® 6ÀÚ¸®¸¦ ÀÔ·ÂÇÏ¼¼¿ä');
 				$('#jumin1').val('').focus();
 				return false;
 			}
 		
 			var jumin2 =$.trim($('#jumin2').val());
 			if(jumin2 ==''){
-				alert('ì£¼ë¯¼ë²ˆí˜¸ ë’·ìë¦¬ë¥¼ ì…ë ¥í•˜ì„¸ìš”');
+				alert('ÁÖ¹Î¹øÈ£ µŞÀÚ¸®¸¦ ÀÔ·ÂÇÏ¼¼¿ä');
 				$('#jumin2').focus();
 				return false;
 			}
 			
 			if($.trim($('#jumin2').val()).length !=7){
-				alert('ì£¼ë¯¼ë²ˆí˜¸ ë’·ìë¦¬ 7ìë¦¬ë¥¼ ì…ë ¥í•˜ì„¸ìš”');
+				alert('ÁÖ¹Î¹øÈ£ µŞÀÚ¸® 7ÀÚ¸®¸¦ ÀÔ·ÂÇÏ¼¼¿ä');
 				$('#jumin2').val('').focus();
 				return false;
 			}
 			
 			var email = $.trim($('#email').val());
 			if (email ==''){
-				alert('E-mail ì•„ì´ë””ë¥¼ ì…ë ¥í•˜ì„¸ìš”');
+				alert('E-mail ¾ÆÀÌµğ¸¦ ÀÔ·ÂÇÏ¼¼¿ä');
 				$('#email').focus();
 				return false;
 			}
 
 			var domain = $.trim($('#domain').val());
 			if (domain ==''){
-				alert('E-mail ë„ë©”ì¸ì„ ì…ë ¥í•˜ì„¸ìš”');
+				alert('E-mail µµ¸ŞÀÎÀ» ÀÔ·ÂÇÏ¼¼¿ä');
 				$('#domain').focus();
 				return false;
 			}
 			
 			/*var gender = $('input:radio:checked').length;
 				if(gender==0){
-					alert('ë‚¨,ì—¬ ì¤‘ì—ì„œ 1ê°œë¥¼ ì„ íƒí•˜ì„¸ìš”');
+					alert('³²,¿© Áß¿¡¼­ 1°³¸¦ ¼±ÅÃÇÏ¼¼¿ä');
 					return false;
 				}*/
 			
 			//input:checkbox:checked
 			var hobby = $('input[type=checkbox]:checked').length;
 				if(hobby<2){
-					alert("2ê°œì´ìƒ ì·¨ë¯¸ë¥¼ ì„ íƒí•˜ì„¸ìš”");
+					alert("2°³ÀÌ»ó Ãë¹Ì¸¦ ¼±ÅÃÇÏ¼¼¿ä");
 					return false;
 				}
 
 			var post = $.trim($('#post1').val());
 			if (post ==''){
-				alert('ìš°í¸ë²ˆí˜¸ë¥¼ ì…ë ¥í•˜ì„¸ìš”');
+				alert('¿ìÆí¹øÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä');
 				$('#post1').focus();
 				return false;
 			}
 			
 			if(!$.isNumeric($("#post1").val())){
-				alert("ìš°í¸ë²ˆí˜¸ëŠ” ìˆ«ìë§Œ ì…ë ¥ ê°€ëŠ¥í•©ë‹ˆë‹¤.")
+				alert("¿ìÆí¹øÈ£´Â ¼ıÀÚ¸¸ ÀÔ·Â °¡´ÉÇÕ´Ï´Ù.")
 				$("#post1").val("").focus();
 				return false;
 			}
 			
 			if(post.length!=5){
-				alert("ìš°í¸ë²ˆí˜¸ëŠ” ë‹¤ì„¯ ìë¦¬ì…ë‹ˆë‹¤.")
+				alert("¿ìÆí¹øÈ£´Â ´Ù¼¸ ÀÚ¸®ÀÔ´Ï´Ù.")
 				$("#post1").focus();
 				return false;
 			}
 
 			var address = $.trim($('#address').val());
 			if (address ==''){
-				alert('ì£¼ì†Œë¥¼ ì…ë ¥í•˜ì„¸ìš”');
+				alert('ÁÖ¼Ò¸¦ ÀÔ·ÂÇÏ¼¼¿ä');
 				$('#address').focus();
 				return false;
 			}
 
 			var intro = $.trim($('#intro').val());
 			if (intro ==''){
-				alert('ìê¸°ì†Œê°œë¥¼ ì…ë ¥í•˜ì„¸ìš”');
+				alert('ÀÚ±â¼Ò°³¸¦ ÀÔ·ÂÇÏ¼¼¿ä');
 				$('#intro').focus();
 				return false;
 			}
 			
 			var submit_id_value=$.trim($('#id').val())
 			if(!is_idcheck_click||submit_id_value !=idcheck_value){
-				alert("ID ì¤‘ë³µê²€ì‚¬ë¥¼ ì‹¤í–‰í•˜ì„¸ìš”");
+				alert("ID Áßº¹°Ë»ç¸¦ ½ÇÇàÇÏ¼¼¿ä");
 				return false;
 			}			
 			
@@ -121,7 +120,7 @@
 			}
 			
 			if(is_idcheck_click==false){
-				alert('ID ì¤‘ë³µê²€ì‚¬ë¥¼ ì‹¤í–‰í•˜ì„¸ìš”')
+				alert('ID Áßº¹°Ë»ç¸¦ ½ÇÇàÇÏ¼¼¿ä')
 				return false;
 			}*/
 		})
@@ -131,7 +130,7 @@
 		$('#myform > div > fieldset > div:nth-child(3) > input[type=button]:nth-child(2)').click(function(){
 			var id=$.trim($('#id').val());
 			if(id ==''){
-				alert('IDë¥¼ ì…ë ¥í•˜ì„¸ìš”');
+				alert('ID¸¦ ÀÔ·ÂÇÏ¼¼¿ä');
 				$('#id').focus();
 				return false;
 			}else{
@@ -143,7 +142,7 @@
 					idcheck_value=id;
 		
 				} else {
-					alert("ì²«ê¸€ìëŠ” ëŒ€ë¬¸ìì´ê³  ë‘ë²ˆì§¸ë¶€í„°ëŠ” ëŒ€ì†Œë¬¸ì, ìˆ«ì, _ë¡œ ì´ 4ê°œ ì´ìƒì´ì–´ì•¼ í•©ë‹ˆë‹¤.")
+					alert("Ã¹±ÛÀÚ´Â ´ë¹®ÀÚÀÌ°í µÎ¹øÂ°ºÎÅÍ´Â ´ë¼Ò¹®ÀÚ, ¼ıÀÚ, _·Î ÃÑ 4°³ ÀÌ»óÀÌ¾î¾ß ÇÕ´Ï´Ù.")
 					$('#id').val('').focus();
 				}
 			}
@@ -157,7 +156,7 @@
 				if (reg1.test(jumin1)) {
 					$('#jumin2').focus();
 					}else {
-						alert("ì£¼ë¯¼ë²ˆí˜¸ ì•ìë¦¬ í˜•ì‹ì— ë§ì§€ ì•ŠìŠµë‹ˆë‹¤.")
+						alert("ÁÖ¹Î¹øÈ£ ¾ÕÀÚ¸® Çü½Ä¿¡ ¸ÂÁö ¾Ê½À´Ï´Ù.")
 						$('#jumin1').val('').focus();
 				} 
 			}
@@ -169,13 +168,13 @@
 			if($.trim($('#jumin2').val()).length==7){
 				reg2=/^[1234][0-9]{6}$/;
 				if(reg2.test(jumin2)){
-					//ì£¼ë¯¼ë²ˆí˜¸ ë’·ìë¦¬ì— ë”°ë¼ ë‚¨ì ì—¬ì ì„±ë³„ ë¼ë””ì˜¤ë²„íŠ¼ ìë™ì„ íƒ
+					//ÁÖ¹Î¹øÈ£ µŞÀÚ¸®¿¡ µû¶ó ³²ÀÚ ¿©ÀÚ ¼ºº° ¶óµğ¿À¹öÆ° ÀÚµ¿¼±ÅÃ
 					var c = $('#jumin2').val().substring(0,1);
-					var index=(c-1)%2; //c=1 ë˜ëŠ” 3ì´ë©´ index=0 
-									   //c=2 ë˜ëŠ” 4ì´ë©´ index=1 
+					var index=(c-1)%2; //c=1 ¶Ç´Â 3ÀÌ¸é index=0 
+									   //c=2 ¶Ç´Â 4ÀÌ¸é index=1 
 					$('input[type=radio]').eq(index).prop('checked',true);
 				} else{
-					alert('ì£¼ë¯¼ë²ˆí˜¸ ë’·ìë¦¬ í˜•ì‹ì— ë§ì§€ ì•ŠìŠµë‹ˆë‹¤.');
+					alert('ÁÖ¹Î¹øÈ£ µŞÀÚ¸® Çü½Ä¿¡ ¸ÂÁö ¾Ê½À´Ï´Ù.');
 					$('#jumin2').val('').focus();
 				}
 			}
@@ -191,8 +190,41 @@
 			}
 		})
 		
-		$('#post1').next().click(function(){
-			window.open( "post.html",'post', 'width=400, height=500');
+		$('#postcode').click(function(){
+			new daum.Postcode({
+            oncomplete: function(data) {
+            	console.log(data.zonecode)
+                // ÆË¾÷¿¡¼­ °Ë»ö°á°ú Ç×¸ñÀ» Å¬¸¯ÇßÀ»¶§ ½ÇÇàÇÒ ÄÚµå¸¦ ÀÛ¼ºÇÏ´Â ºÎºĞ.
+ 
+                // µµ·Î¸í ÁÖ¼ÒÀÇ ³ëÃâ ±ÔÄ¢¿¡ µû¶ó ÁÖ¼Ò¸¦ Á¶ÇÕÇÑ´Ù.
+                // ³»·Á¿À´Â º¯¼ö°¡ °ªÀÌ ¾ø´Â °æ¿ì¿£ °ø¹é('')°ªÀ» °¡Áö¹Ç·Î, ÀÌ¸¦ Âü°íÇÏ¿© ºĞ±â ÇÑ´Ù.
+                var fullRoadAddr = data.roadAddress; // µµ·Î¸í ÁÖ¼Ò º¯¼ö
+                var extraRoadAddr = ''; // µµ·Î¸í Á¶ÇÕÇü ÁÖ¼Ò º¯¼ö
+ 
+                // ¹ıÁ¤µ¿¸íÀÌ ÀÖÀ» °æ¿ì Ãß°¡ÇÑ´Ù. (¹ıÁ¤¸®´Â Á¦¿Ü)
+                // ¹ıÁ¤µ¿ÀÇ °æ¿ì ¸¶Áö¸· ¹®ÀÚ°¡ "µ¿/·Î/°¡"·Î ³¡³­´Ù.
+                if(data.bname !== '' && /[µ¿|·Î|°¡]$/g.test(data.bname)){
+                    extraRoadAddr += data.bname;
+                }
+                // °Ç¹°¸íÀÌ ÀÖ°í, °øµ¿ÁÖÅÃÀÏ °æ¿ì Ãß°¡ÇÑ´Ù.
+                if(data.buildingName !== '' && data.apartment === 'Y'){
+                   extraRoadAddr += (extraRoadAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+                }
+                // µµ·Î¸í, Áö¹ø Á¶ÇÕÇü ÁÖ¼Ò°¡ ÀÖÀ» °æ¿ì, °ıÈ£±îÁö Ãß°¡ÇÑ ÃÖÁ¾ ¹®ÀÚ¿­À» ¸¸µç´Ù.
+                if(extraRoadAddr !== ''){
+                    extraRoadAddr = ' (' + extraRoadAddr + ')';
+                }
+                // µµ·Î¸í, Áö¹ø ÁÖ¼ÒÀÇ À¯¹«¿¡ µû¶ó ÇØ´ç Á¶ÇÕÇü ÁÖ¼Ò¸¦ Ãß°¡ÇÑ´Ù.
+                if(fullRoadAddr !== ''){
+                    fullRoadAddr += extraRoadAddr;
+                }
+ 
+                
+                // ¿ìÆí¹øÈ£¿Í ÁÖ¼Ò Á¤º¸¸¦ ÇØ´ç ÇÊµå¿¡ ³Ö´Â´Ù.
+              $("#post1").val(data.zonecode);
+              $("#address").val(fullRoadAddr);
+            }
+        }).open();
 		})
 	})
 
