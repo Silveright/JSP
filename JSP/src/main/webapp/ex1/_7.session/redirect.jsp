@@ -21,7 +21,7 @@ div{color:white; font-size:30px; font-weight:bold}
 		but 로그아웃이 이루어지면 세션에 저장된 값 제거 removeAttribute -->
 	</div>
 	<p>
-	<!-- http://localhost:8088/JSP/ex1/_6.redirect/redirect.jsp -->
+	<!-- http://localhost:8088/JSP/ex1/_7.session/redirect.jsp -->
 		요청 주소 : <%=request.getRequestURL() %>
 	</p>
 </body>

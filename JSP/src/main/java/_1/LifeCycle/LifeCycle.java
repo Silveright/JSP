@@ -27,6 +27,7 @@ import javax.servlet.http.HttpServletResponse;
 //@WebServlet(urlPatterns = {"/LifeCycle"})
 public class LifeCycle extends HttpServlet {
 
+	
 	/*
 		1.serialVersionUID는 같은 클래스임을 알려주는 식별자 역할을 하며
 		Serializable 인터페이스를 구현한 클래스를 컴파일하면 자동적으로

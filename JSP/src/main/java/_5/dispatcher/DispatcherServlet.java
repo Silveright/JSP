@@ -1,8 +1,6 @@
 package _5.dispatcher;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -20,7 +18,7 @@ public class DispatcherServlet extends HttpServlet {
 	/*
 	 페이지 이동방법
 	 Dispatcher 방식
-	 -클라이언트로부터 요청 받은 Servlet프로그램이 응답을 하지 않고 다른 서블릿이나 JSP 페이지 등에 요청을 전달함(요펑 재지정)
+	 -클라이언트로부터 요청 받은 Servlet프로그램이 응답을 하지 않고 다른 서블릿이나 JSP 페이지 등에 요청을 전달함(요청 재지정)
 	 -이 방식으로 이동하면 주소표시줄의 주소가 변경되지 않음
 	 -request 영역을 공유하게 된다.
 	 -방법: RequestDispatcher에서 제공하는 메서드 (forward())를 사용하여 요청 재지정

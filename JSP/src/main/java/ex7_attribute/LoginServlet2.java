@@ -1,4 +1,4 @@
-package Assm;
+package ex7_attribute;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -10,11 +10,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-@WebServlet("/ex2_jsp/Assm/login")
-public class LoginServlet extends HttpServlet {
+@WebServlet("/ex3_implicit_object/_7.attribute/test/attributeTest2")
+public class LoginServlet2 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	public LoginServlet() {
+	public LoginServlet2() {
 		super();
 	}
 	
@@ -32,24 +32,16 @@ public class LoginServlet extends HttpServlet {
 		response.setContentType("text/html;charset=euc-kr");
 		
 		//파라미터 id 가져오기
-		String id = request.getParameter("id");
-		
-		//파라미터에 id라는 이름이 없는 경우
-		//예) http://localhost:8088/JSP/ex2_jsp/Assm/login?passwd=1234
-		if(id==null) {
-			System.out.println("null입니다.");
-		}
-		
-		//파라미터 'id'값이 없는 경우
-		// http://localhost:8088/JSP/ex2_jsp/Assm/login?id=&passwd=1234
-		if(id!=null && id.equals("")) {
-			System.out.println("공백 입니다. ");
-		}
+		String email = request.getParameter("email");
+		String tel = request.getParameter("tel");
+		String address = request.getParameter("address");
 		
 		HttpSession session = request.getSession();
 		//세션 객체 id 속성으로 id 값 저장 
-		session.setAttribute("id", id);
-		response.sendRedirect("template.jsp");
+		session.setAttribute("email", email);
+		session.setAttribute("address", address);
+		session.setAttribute("tel", tel);
+		response.sendRedirect("attributeTest2.jsp");
 		
 	}
 }

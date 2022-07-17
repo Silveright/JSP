@@ -39,7 +39,6 @@ public class send extends HttpServlet {
 			hobby_result += hobby[num]+ "  ";
 		}
 		
-		//데이터베이스에서 가지고오는 자료가 쓰일 경우 dispatcher방식을 사용한다. ex)DTO
 		request.setAttribute("id", id);
 		request.setAttribute("pass", pass);
 		request.setAttribute("jumin", jumin1+"-" + jumin2);
@@ -50,7 +49,6 @@ public class send extends HttpServlet {
 		request.setAttribute("address", address);
 		request.setAttribute("intro", intro);
 		
-		//dispatcher.jsp : 이동할 페이지 주소 요처에 변화가 없다(request, response 그대로 사용)
 		RequestDispatcher dispatcher = 
 				request.getRequestDispatcher("dispatcher.jsp");
 		//이동한다.

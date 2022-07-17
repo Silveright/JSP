@@ -5,10 +5,10 @@
 <head>
 <meta charset="EUC-KR">
 <title>login.jsp</title>
-<link href="../../css/ch03-1.css" type="text/css" rel="stylesheet">
+<link href="../css/ch03-1.css" type="text/css" rel="stylesheet">
 </head>
 <body>
-	<form action="login" method="get">
+	<form action="templatetest.jsp" method="post">
 	아이디 : <input type="text" name="id" required><br>
 	비밀번호 : <input type="password" name="passwd" required><br>
 	<div class="clearfix">
@@ -16,5 +16,7 @@
 		<button type="reset" class="cancelbtn">취소 </button>
 	</div>
 	</form>
+	
+	
 </body>
 </html>

@@ -20,7 +20,7 @@ public class LifeCycleTest_post extends HttpServlet{
 		//응답하는 데이터 타입이 html 타입이고
 		//charset=euc-kr로 지정하면서 응답되는 데이터들의 한글 처리를 한 부분이다.
 		response.setContentType("text/html;charset=euc-kr");
-		
+		request.setCharacterEncoding("euc-kr");
 		//getParameter()메서드:
 		/* 
 		 html의 태그 속성 중 "name=id, name=passwd"인 곳에서 입력한 후 전송되어 온 파라미터 값을 반환해 주는 메서드

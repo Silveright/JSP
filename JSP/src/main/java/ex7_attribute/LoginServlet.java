@@ -1,4 +1,4 @@
-package Assm;
+package ex7_attribute;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-@WebServlet("/ex2_jsp/Assm/login")
+@WebServlet("/ex3_implicit_object/_7.attribute/test/attributeTest1")
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -33,6 +33,7 @@ public class LoginServlet extends HttpServlet {
 		
 		//파라미터 id 가져오기
 		String id = request.getParameter("id");
+		String name = request.getParameter("name");
 		
 		//파라미터에 id라는 이름이 없는 경우
 		//예) http://localhost:8088/JSP/ex2_jsp/Assm/login?passwd=1234
@@ -48,8 +49,9 @@ public class LoginServlet extends HttpServlet {
 		
 		HttpSession session = request.getSession();
 		//세션 객체 id 속성으로 id 값 저장 
+		session.setAttribute("name", name);
 		session.setAttribute("id", id);
-		response.sendRedirect("template.jsp");
+		response.sendRedirect("attributeTest1.jsp");
 		
 	}
 }

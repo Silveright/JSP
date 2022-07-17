@@ -40,7 +40,5 @@ public class memReg_post extends HttpServlet{
 		throws ServletException, IOException {
 			request.setCharacterEncoding("euc-kr");
 			doGet(request, response);
-		
-		
 	}
 }

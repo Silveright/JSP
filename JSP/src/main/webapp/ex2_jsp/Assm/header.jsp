@@ -2,29 +2,25 @@
     pageEncoding="EUC-KR"%>
  
 <style>
-input {
-    background-color: #028002;
-    color: white;
-    padding: 10px 20px;
-    margin: 8px 0;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-    text-align:right;
-    font-weight:bold;
-}
+div {
+   padding:1%; text-align:right; background-color:green; color:white}
+a{text-decoration:none; color:white; font-weight:bold}
+div:hover{opacity:0.8}
 
 input:hover{opacity: 0.9}
 </style>
-	<%
-	if(session.getAttribute("id")!=null){
+<div>
+	<% String id=(String)session.getAttribute("id");
+	if(id!=null && !id.equals("")){
 	%>
-	<input type=button
-		value='<%=session.getAttribute("id")%>님이 로그인 되었습니다.(로그아웃)'
-		onclick="location.href ='logout.jsp'">
+	
+		<%=id%>님이 로그인 되었습니다.
+		<a href='logout.jsp'>(로그아웃)</a>
 	<%
 	} else{
 	%>
-	<input type=button value="로그인" onclick="location.href ='login.jsp'">
-	<% } 
+	<a href='login.jsp'>로그인</a>
+	<%
+	} 
 	%>
+</div>

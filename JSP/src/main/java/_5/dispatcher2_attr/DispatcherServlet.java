@@ -35,11 +35,9 @@ public class DispatcherServlet extends HttpServlet {
 		request.setAttribute("food", food);
 		request.setAttribute("name", "jsp");
 		
-		//dispatcher.jsp : 이동할 페이지 주소 요처에 변화가 없다(request, response 그대로 사용)
+		//dispatcher.jsp : 이동할 페이지 주소 요청에 변화가 없다(request, response 그대로 사용)
 		RequestDispatcher dispatcher = request.getRequestDispatcher("dispatcher.jsp");
 		//이동한다.
 		dispatcher.forward(request, response);
-
-		
 	}
 }

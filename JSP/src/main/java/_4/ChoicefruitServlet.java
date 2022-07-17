@@ -54,6 +54,4 @@ public class ChoicefruitServlet extends HttpServlet {
 		out.write("</tr></table>");
 		
 	}
-			
-	
 }

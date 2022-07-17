@@ -46,7 +46,6 @@ public class ChoicefruitServlet2 extends HttpServlet {
 		for(String fruit:f) {
 			out.write("<td>"+fruit+"</td>");
 		}
-		
 		out.write("</tr><tr>");
 		
 		for(String fruit:f) {
@@ -55,6 +54,4 @@ public class ChoicefruitServlet2 extends HttpServlet {
 		out.write("</tr></table></body></html>");
 		out.close();
 	}
-			
-	
 }
