@@ -21,10 +21,10 @@ pagefile="newitem";
 %>
 <body>
 	<header>
-		<%@ include file="top.jsp" %>
+		<jsp:include page='<%="top.jsp" %>'/>
 	</header>
 	<nav>
-		<%@ include file="left.jsp" %>
+		<jsp:include page='<%="left.jsp" %>'/>
 	</nav>
 	<div id="wrap">
 		<aside>
