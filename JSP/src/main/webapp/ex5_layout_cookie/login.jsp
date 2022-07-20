@@ -2,7 +2,6 @@
     pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
 <html>
-<link href="../css/ch03-1.css" type="text/css" rel="stylesheet">
 </head>
 <script src="<%=request.getContextPath()%>/js/jquery-3.6.0.js"></script>
 <%		
@@ -20,6 +19,11 @@
 %>
 <head>
 <title>쿠키 이용 아이디 저장</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<style>
+.container{margin:3em auto; border:1px solid lightgray; width:500px}
+</style>
 <script>
 	$(document).ready(function(){
 			var id_val = '<%=id%>';
@@ -51,24 +55,25 @@
 	}) */
 </script>
 <body>
+	<div class="container">
 	<form action="login_ok.jsp" method="post" class="border-light p-5">
-		<h1>로그인 </h1>
-		<hr>
-	<b>아이디</b> 
-	<input type="text" name="id" id="id"  required>
-	<b>비밀번호</b> 
-	<input type="password" name="passwd" id='pass' required><br>
-	<div class="clearfix">
-		<button type="submit" class="submitbtn">전송 </button>
-		<button type="reset" class="cancelbtn">취소 </button>
+		<p class="h4 mb-4 text-center">login</p>
+	<div class="form-group">
+		<label for="id">id</label> 
+		<input type="text" class="form-control" name="id" id="id" placeholder="Enter id">
+	</div>
+	<div class="form-group">
+		<label for="pass">Password</label> 
+		<input type="password" class="form-control" name="passwd" id="pass" placeholder="Enter password">
 	</div>
 	
-	<div>
-		<input type="checkbox" id="remember" name="remember" value="store">
-		<label for="remember">아이디 기억하기</label>
+	<div class="form-group custom-control custom-checkbox">
+		<input type="checkbox" class="custom-control-input" id="remember" name="remember" value="store">
+		<label class="custom-control-label" for="remember">아이디 기억하기</label>
 	</div>
-	
+		<button type="submit" class="btn btn-info my-4 btn-block">Submit</button>
 	</form>
+	</div>
 	
 	
 </body>
