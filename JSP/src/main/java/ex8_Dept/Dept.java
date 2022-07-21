@@ -46,7 +46,7 @@ package ex8_Dept;
 	 	여러개의 정보들을 데이터 빈이라는 하나의 객체에 저장하게 되고
 	 	이 객체를 전달하면 각정보를 하나씩 전달할 필요가 없으며
 	 	한꺼번에 모든 정보가 전달된다.
-	 	이런 클래스를 RTO(Data Transfer Object), VO(value Object)라고 한다.
+	 	이런 클래스를 DTO(Data Transfer Object), VO(value Object)라고 한다.
 	 	DB에서 만들었던 컬럼명과 동일하게 프로퍼티들을 생성한다.
 */
 public class Dept {

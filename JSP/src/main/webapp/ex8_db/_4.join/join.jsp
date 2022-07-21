@@ -9,6 +9,9 @@
 	<script src ='<%=request.getContextPath()%>/ex8_db/_4.join/js/validate3.js'></script>
 	<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script> 
 <title>Insert title here</title>
+<style>
+#opener_message{margin-top:-10px;margin-bottom:10px;}
+</style>
 </head>
 <body>
 
@@ -21,6 +24,7 @@
      <div>
      <input type='text' placeholder="Enter id" name='id' id='id'>
      <input type='button' value="ID중복검사" id='idcheck'>
+     <div id="opener_message"></div><input type="hidden" id="result">
      </div>
      
      <label for='pass'>Password</label>

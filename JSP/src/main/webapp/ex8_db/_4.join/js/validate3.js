@@ -111,7 +111,17 @@
 			if(!is_idcheck_click||submit_id_value !=idcheck_value){
 				alert("ID 중복검사를 실행하세요");
 				return false;
-			}			
+			}
+			
+			var result=$("#result").val();
+			if(result=='-1'){
+				alert("사용가능한 아이디로 다시 입력하세요");
+				$("#id").val('').focus();
+				$("#opener_message").text('');
+				return false;
+			}	
+			
+					
 			
 			/*if(idcheck_value!=id){
 				is_idcheck_click=false;
@@ -136,7 +146,7 @@
 			}else{
 				pattern = /^[A-Z][A-Za-z_0-9]{3,}$/;
 				if (pattern.test(id)) {
-					var ref = "idcheck.html?id=" + id;
+					var ref = "idcheck?id="+$("#id").val();
 					window.open(ref, '', 'width=300, height=250');
 					is_idcheck_click=true;
 					idcheck_value=id;

@@ -31,6 +31,23 @@
 <%
 	String pagefile=(String)request.getAttribute("pagefile");
 %>
+	
+	<script>
+	var result = '<%=session.getAttribute("join_result")%>';
+	if(result != 'null'){//세션 객체에 "join_result"속성이 없으면 result는 null이됨
+		if(result ==='1'){
+			alert('회원 가입을 축하합니다.');
+		}else{
+			alert('회원 가입에 실패하셨습니다.');
+		}
+		<%session.removeAttribute("join_result");%>
+	}
+	var message ='<%=request.getAttribute("message")%>'; /* Login_OK.java, Update.java에서 설정 */
+		if(message!='null'){
+			alert(message);
+		}
+	
+	</script>
 <body>
 		<header>
 			<div class="jumbotron text-center" style="margin-bottom:0">
@@ -57,19 +74,6 @@
 	<footer>
 		<jsp:include page="bottom.jsp"/>
 	</footer>
-	
-	<script>
-	 var pagefile='<%=pagefile%>';
-	 var filelist = ["newitem", "bestitem", "useditem"];
-	 
-	 for(var index=0; index<filelist.length; index++){
-		 if(pagefile==filelist[index]){
-			 $('.nav-pills> .nav-item > .nav-link').eq(index).addClass('active');
-		 } else{
-			 $('.nav-pills> .nav-item > .nav-link').eq(index).removeClass('active');
-		 }
-	 }
-	</script>
 </body>
 </html>
 
