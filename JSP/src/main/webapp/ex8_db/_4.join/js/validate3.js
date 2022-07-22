@@ -1,5 +1,4 @@
 	$(document).ready(function(){
-		var is_idcheck_click=false;//id 중복 검사 여부
 		var idcheck_value='';
 		//var clicked=0;
 		//var oldVal='';
@@ -107,19 +106,29 @@
 				return false;
 			}
 			
-			var submit_id_value=$.trim($('#id').val())
-			if(!is_idcheck_click||submit_id_value !=idcheck_value){
-				alert("ID 중복검사를 실행하세요");
-				return false;
+			if(!$("#id").prop('readOnly')){//회원가입 폼과 정보 수정 폼에서 동시에 사용할 js
+											//회원가입 폼에서만 사용할 문장들
+											//정보수정 폼에서는 아이디 수정하지 않아 필요없는 부분
+				
+				console.log($("#id").prop('readOnly'))
+				var submit_id_value=$.trim($('#id').val())
+				if(submit_id_value !=idcheck_value){//submit 당시 아이디값과 아이디 중복검사에 사용된 아이디를 비교
+					alert("ID 중복검사를 실행하세요");
+					return false;
+				}
+				
+				
+				//아이디 중복 검사를 했지만 사용중인 아이디인 경우 submit 시 경고창이 나타남
+				var result=$("#result").val();
+				if(result==='-1'){
+					alert("사용가능한 아이디로 다시 입력하세요");
+					$("#id").val('').focus();
+					$("#opener_message").text('');
+					return false;
+				}	
+				
 			}
 			
-			var result=$("#result").val();
-			if(result=='-1'){
-				alert("사용가능한 아이디로 다시 입력하세요");
-				$("#id").val('').focus();
-				$("#opener_message").text('');
-				return false;
-			}	
 			
 					
 			
@@ -148,7 +157,6 @@
 				if (pattern.test(id)) {
 					var ref = "idcheck?id="+$("#id").val();
 					window.open(ref, '', 'width=300, height=250');
-					is_idcheck_click=true;
 					idcheck_value=id;
 		
 				} else {
@@ -183,6 +191,7 @@
 					var index=(c-1)%2; //c=1 또는 3이면 index=0 
 									   //c=2 또는 4이면 index=1 
 					$('input[type=radio]').eq(index).prop('checked',true);
+					$("input[type=radio]").not(":checked").prop("disabled",true);
 				} else{
 					alert('주민번호 뒷자리 형식에 맞지 않습니다.');
 					$('#jumin2').val('').focus();

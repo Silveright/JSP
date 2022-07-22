@@ -24,7 +24,7 @@
 				}
 				<%session.removeAttribute("login_result");%>
 			}
-			//Login.java에서 찾고자 하는 쿠키가 없는 경우 String id ="";적용되어 18라인 변수 id의 값은 빈 문자열
+			//Login.java에서 찾고자 하는 쿠키가 없는 경우 String id ="";적용되어 28라인 변수 id의 값은 빈 문자열
 			var id = '<%=request.getAttribute("id")%>';
 			if(id){
 				$("#id").val(id);

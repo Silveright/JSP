@@ -24,7 +24,7 @@
      <div>
      <input type='text' placeholder="Enter id" name='id' id='id'>
      <input type='button' value="ID중복검사" id='idcheck'>
-     <div id="opener_message"></div><input type="hidden" id="result">
+     <div id="opener_message"></div><input type="hidden" id="result"><!-- submit 시 결과값에 따라 submit 가능여부 판단함 -->
      </div>
      
      <label for='pass'>Password</label>

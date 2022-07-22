@@ -10,8 +10,8 @@
 	 href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <link href="<%=request.getContextPath()%>/ex8_db/_4.join/css/NewFile.css" rel="stylesheet" type="text/css">
 <script src="http://code.jquery.com/jquery-latest.js"></script>
-<script src ='<%=request.getContextPath()%>/ex8_db/_4.join/js/validate3.js' charset="euc-kr"></script>
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script> 
+<script src ='<%=request.getContextPath()%>/ex8_db/_4.join/js/validate3.js' charset="euc-kr"></script>
 
 </head>
 <body>
@@ -22,16 +22,14 @@
 	%>
 		 
 	<form  name='myform' method='post' 
-			 id='myform' action='join_ok'> 
+			 id='myform' action='update'> 
     <div class='container'>
     <fieldset>
      <legend>정보수정</legend>
      <label for='id'>ID</label>
      <div>
      <input type='text' placeholder="Enter id" name='id' id='id' readOnly
-     		value="<%=temp.getId()%>" >
-     <input type='button' value="ID중복검사" id='idcheck'>
-     <div id="opener_message"></div><input type="hidden" id="result">
+     		value="<%=temp.getId()%>" style="background: #ccc; width: 100%">
      </div>
      
      <label for='pass'>Password</label>
@@ -42,13 +40,14 @@
      	value="<%=temp.getJumin().substring(0,6)%>" maxLength='6' name='jumin1' id='jumin1'>
      <b> - </b>
      <input type='text' placeholder='주민번호 뒷자리' 
-     	value="<%=temp.getJumin().substring(7,13)%>"  maxLength='7' 
+     	value="<%=temp.getJumin().substring(7)%>"  maxLength='7' 
      		name='jumin2' id='jumin2'>
-     
+<!--      	temp.getJumin().substring(7)	
+ -->     
       <label for='email'>E-Mail</label>
       <% String email = temp.getEmail();
     		String sub[] =email.split("@");
-    		  %>
+    		  %>						<!-- temp.getEmail().split("@"); -->
       <input type='text' name='email' id='email' value="<%=sub[0]%>">@
       <input type='text' name='domain'  value="<%=sub[1]%>" id='domain' >            
       <select name='sel' id='sel' >
@@ -60,9 +59,9 @@
       </select>
      
      <label>성별</label>
-     <div class='container2'><!-- type="radio"는 readOnly가 작동하지 않아 onclick="return false"로 해결한다.  -->
-     	<input type='radio' name='gender' value='m' id='gender1' onclick="return false">남자
-    	<input type='radio' name='gender' value='f' id='gender2' onclick="return false">여자
+     <div class='container2'>
+     	<input type='radio' name='gender' value='m' id='gender1'>남자
+    	<input type='radio' name='gender' value='f' id='gender2'>여자
      </div>
      
      <label>취미</label>
@@ -75,7 +74,7 @@
      </div>
      
      <label for='post1'>우편번호</label>
-     <input type='text' value="<%=temp.getPost()%>" size='5' maxLength='5' name='post1' id='post1'>
+     <input type='text' value="<%=temp.getPost()%>" readOnly size='5' maxLength='5' name='post1' id='post1'>
      <input type='button' value="우편검색" id="postcode">
      
      <label for='address'>주소</label>
@@ -89,33 +88,46 @@
      <button type=reset class='cancelbtn'>cancel</button>
      </div>
      </fieldset>
+     	<a href="templatetest">templatetest.jsp 이동하기</a>
+     	<a href = "javascript:history.back();">이전페이지로 이동하기</a>
     </div>
    </form>
-   <%	 } else {
-				out.print("<h4>조회된 데이터가 없습니다.</h4>");
-			}
-			%>
 	<script>
 	$(document).ready(function(){
 		
-		 $("#gender1").prop("checked", true)
+		var gender ='<%=temp.getGender()%>';
+		$("input[value="+gender+"]").prop("checked",true);//성별 체크
+		
+		//체크되지 않는 성별을 비활성 시켜 임의선택이 불가능하도록 만든다.
+		$("input:radio").not(":checked").prop("disabled",true);
+		
+		var hobbys = '<%=temp.getHobby()%>'.split(',');
+			for(var i =0; i<hobbys.length;i++)
+				 $("input[value="+ hobbys[i] +"]").prop('checked',true);
+		
+		<%--  $("#gender1").prop("checked", true)
 		 var gender = "<%=temp.getGender()%>"; 
 		if(gender=="m"){ 
 			$('#gender1').prop("checked",true);
-		 }else{$('#gender2').prop("checked",true);}
+		 }else{$('#gender2').prop("checked",true);} --%>
 		
 		//$("input:radio").val().equalse.prop("checked",true) 
 		
-		var hobby ="<%=temp.getHobby()%>"
+		<%-- var hobby ="<%=temp.getHobby()%>"
 		var split = hobby.split(",");
 		for(var i=0; i<split.length; i++){
 			for(var j=0; j<$("input:checkbox").length; j++){
 				if(split[i]==($("input:checkbox:eq("+j+")").val())){
 					$("input:checkbox:eq("+j+")").prop("checked",true);
-				}
+				} 
 			}
-		} 
+		} --%>
 	})
 	</script>
+   <%	 } else {
+	%>
+	<h4 style="text-align:center;position:relative;top:3em">해당 정보가 존재하지 않습니다.</h4>
+		<%	}
+			%>
  </body>
 </html>

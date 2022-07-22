@@ -1,7 +1,6 @@
 package ex8_template;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -15,12 +14,12 @@ import javax.servlet.http.HttpSession;
 	@WebServlet("/update_form")
 	public class Update_form extends HttpServlet{
 		private static final long serialVersionUID = 1L;
-		
+		//anchor로 클릭해서 온 경우 doGet
 		protected void doGet(HttpServletRequest request,
 				HttpServletResponse response) throws ServletException, IOException {
 			HttpSession session = request.getSession();
 			String id = (String) session.getAttribute("id");
-			
+			//회원 정보를 알기 위해 session에서 id값을 가져와 보내줌
 			if(id != null && !id.equals("")) {
 				DAO dao = new DAO();
 				Template_join temp = dao.selectInfo(id);

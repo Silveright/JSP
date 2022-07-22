@@ -10,8 +10,7 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
-import ex8_Dept.Dept;
-import ex8_Emp.Emp;
+
 
 
 public class DAO {
@@ -124,7 +123,6 @@ public class DAO {
 
 
 	public Template_join selectInfo(String id) {
-		// TODO Auto-generated method stub
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -162,7 +160,7 @@ public class DAO {
 				temp.setAddress(rs.getString("address"));
 				temp.setIntro(rs.getString("intro"));
 				temp.setRegister_date(rs.getString("register_date"));
-				return temp;
+				return temp;//finally는 수행된다.
 			}
 		}catch(Exception se) {
 			se.printStackTrace();
@@ -187,5 +185,168 @@ public class DAO {
 			}
 		}//finally end
 		return null;
+	}
+
+	public int update(Template_join join) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		int result =0;
+		
+		try {
+			/*context.xml에 생성해 놓은 (JNDI에 설정해 놓은) 리소스 jdbc/OracleDB를
+			  참조하여 Connection 객체를 얻어온다.*/
+			Context init = new InitialContext();
+			DataSource ds = (DataSource) init.lookup("java:comp/env/jdbc/OracleDB");
+			conn = ds.getConnection();
+			
+			
+			String select_sql = "update template_join set "
+					+ "password =?, "
+					+ "jumin = ?, "
+					+ "email = ?, "
+					+ "gender = ?, "
+					+ "hobby = ?, "
+					+ "post =?, "
+					+ "address=?, "
+					+ "intro=? "
+					+ "where id = ? ";
+			//PreparedStatement 객체 얻기
+			pstmt = conn.prepareStatement(select_sql.toString());
+			pstmt.setString(1, join.getPassword());
+			pstmt.setString(2, join.getJumin());
+			pstmt.setString(3, join.getEmail());
+			pstmt.setString(4, join.getGender());
+			pstmt.setString(5, join.getHobby());
+			pstmt.setString(6, join.getPost());
+			pstmt.setString(7, join.getAddress());
+			pstmt.setString(8, join.getIntro());
+			pstmt.setString(9, join.getId());
+			
+			result = pstmt.executeUpdate();
+		}catch(Exception ex) {
+			ex.printStackTrace();
+		} finally {
+			try {
+				if(pstmt !=null)
+					pstmt.close();
+			} catch (SQLException ex) {
+				System.out.println(ex.getMessage());
+				ex.printStackTrace();
+			}
+			try {
+				if(conn != null)
+					conn.close();//DB연결을 끊는다.
+			}catch (Exception ex) {
+				System.out.println(ex.getMessage());
+				ex.printStackTrace();
+			}
+		}//finally end
+		return result;
+	}
+
+	public ArrayList<Template_join> selectAll() {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		ArrayList<Template_join> list = null;
+		
+		try {
+			/*context.xml에 생성해 놓은 (JNDI에 설정해 놓은) 리소스 jdbc/OracleDB를
+			  참조하여 Connection 객체를 얻어온다.*/
+			Context init = new InitialContext();
+			DataSource ds = (DataSource) init.lookup("java:comp/env/jdbc/OracleDB");
+			conn = ds.getConnection();
+			
+			String select_sql = "select * from template_join where id != 'admin' order by register_date desc";
+			
+			//PreparedStatement 객체 얻기
+			pstmt = conn.prepareStatement(select_sql.toString());
+			rs = pstmt.executeQuery();
+			
+			int i = 0;
+			while (rs.next()) {//더이상 읽을 데이터가 없을 때까지 반복
+				
+				if(i++==0) {
+					list = new ArrayList<Template_join>();
+				}
+				Template_join temp = new Template_join();
+				//생성된 테이블 컬럼의 정보를 알고 있는 경우 index를 사용할 수 있다.(인덱스는 생성 순으로 부여됨)
+				temp.setId(rs.getString("id"));
+				temp.setPassword(rs.getString("password"));
+				temp.setJumin(rs.getString("jumin"));
+				temp.setEmail(rs.getString("email"));
+				temp.setGender(rs.getString("gender"));
+				temp.setHobby(rs.getString("hobby"));
+				temp.setPost(rs.getString("post"));
+				temp.setAddress(rs.getString("address"));
+				temp.setIntro(rs.getString("intro"));
+				temp.setRegister_date(rs.getString("register_date"));
+				list.add(temp);
+				
+			}
+		}catch(Exception se) {
+			se.printStackTrace();
+		} finally {
+			try {
+				if (rs!=null)
+					rs.close();
+			}catch(SQLException e) {
+				System.out.println(e.getMessage());
+			}
+			try {
+				if(pstmt != null)
+					pstmt.close();
+			}catch(SQLException e) {
+				System.out.println(e.getMessage());
+			}
+			try {
+				if(conn!=null)
+					conn.close();
+			}catch(Exception e) {
+				System.out.println(e.getMessage());
+			}
+		}//finally end
+		return list;
+	}
+
+	public int delete(String id) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		int result =0;
+		
+		try {
+			/*context.xml에 생성해 놓은 (JNDI에 설정해 놓은) 리소스 jdbc/OracleDB를
+			  참조하여 Connection 객체를 얻어온다.*/
+			Context init = new InitialContext();
+			DataSource ds = (DataSource) init.lookup("java:comp/env/jdbc/OracleDB");
+			conn = ds.getConnection();
+			
+			
+			String select_sql = "delete from template_join "
+					+ "where id = ? ";
+			//PreparedStatement 객체 얻기
+			pstmt = conn.prepareStatement(select_sql.toString());
+			pstmt.setString(1, id);
+			
+			result = pstmt.executeUpdate();
+		}catch(Exception ex) {
+			ex.printStackTrace();
+		} finally {
+			try {
+				if(pstmt !=null)
+					pstmt.close();
+			} catch (SQLException ex) {
+				System.out.println(ex.getMessage());
+				ex.printStackTrace();
+			}
+			try {
+				if(conn != null)
+					conn.close();//DB연결을 끊는다.
+			}catch (Exception ex) {
+				System.out.println(ex.getMessage());
+				ex.printStackTrace();
+			}
+		}//finally end
+		return result;
 	}
 }

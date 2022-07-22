@@ -18,6 +18,7 @@ import javax.servlet.http.HttpServletResponse;
 				HttpServletResponse response) throws ServletException, IOException {
 			String id="";
 			
+			//쿠키를 가지고 오는 부분
 			Cookie[] cookies = request.getCookies();
 			if(cookies != null) {
 				for(int i=0;i<cookies.length;i++) {

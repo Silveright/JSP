@@ -43,6 +43,14 @@ public class Template_join {
 	public String getGender() {
 		return gender;
 	}
+	
+	public String getGenderView() {
+		if(gender.equals("m")) {
+			return "남자";
+		}else {
+			return "여자";
+		}
+	}
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
@@ -74,6 +82,6 @@ public class Template_join {
 		return register_date;
 	}
 	public void setRegister_date(String register_date) {
-		this.register_date = register_date;
+		this.register_date = register_date.substring(0,10);
 	}
 }
